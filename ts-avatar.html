@@ -1,0 +1,53 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="ts-avatar">
+    <script>
+        /**
+         * `ts-avatar`
+         * The avatar
+         *
+         * <ts-avatar>
+         *     <img src="image.jpg" alt="Tyler Schwartz' avatar" />
+         * </ts-avatar>
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class TsAvatar extends Polymer.Element {
+            static get is() {
+                return 'ts-avatar';
+            }
+
+            static get template() {
+                return Polymer.html`
+                    <style>
+                        :host {
+                            --ts-avatar-border-radius: 50%;
+                            --ts-avatar-height: 150px;
+                            --ts-avatar-width: 150px;
+
+                            display: block;
+                            border-radius: var(--ts-avatar-border-radius);
+                            height: var(--ts-avatar-height);
+                            overflow: hidden;
+                            position: relative;
+                            width: var(--ts-avatar-width);
+                        }
+
+                        :host ::slotted(img) {
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                        }
+                    </style>
+                    <slot></slot>
+                `;
+            }
+        }
+
+        window.customElements.define(TsAvatar.is, TsAvatar);
+    </script>
+</dom-module>

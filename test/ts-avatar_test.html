@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>ts-avatar test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../ts-avatar.html">
+  </head>
+  <body>
+
+    <ts-avatar>
+      <img src="../demo/image.jpg" alt="Tyler Schwartz' avatar" />
+    </ts-avatar>
+
+    <script>
+      const avatar = document.querySelector('ts-avatar');
+      const imgs = avatar.shadowRoot.querySelector('slot').assignedNodes({
+        flatten: true
+      }).filter(elem => elem instanceof HTMLImageElement);
+      const img = imgs[0];
+      const borderRadius = window.getComputedStyle(avatar, null).getPropertyValue('border-radius');
+      const height = window.getComputedStyle(img, null).getPropertyValue('height');
+      const width = window.getComputedStyle(img, null).getPropertyValue('width');
+
+      suite('<ts-avatar>', () => {
+
+        test('distributed children', () => {
+          assert.equal(imgs.length, 1, 'one distributed node');
+          assert.equal(img, avatar.querySelector('img', 'content distributed correctly'));
+        });
+
+        test('shape', () => {
+          assert.equal(borderRadius, '50%', 'border radius is correct');
+        });
+
+        test('size', () => {
+          assert.equal(height, '150px', 'height is correct')
+          assert.equal(width, '150px', 'width is correct')
+        });
+
+      });
+    </script>
+
+  </body>
+</html>
