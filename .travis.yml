@@ -1,0 +1,24 @@
+language: node_js
+dist: stable
+sudo: required
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+node_js: stable
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install -g polymer-cli
+  - polymer install
+script:
+  - xvfb-run polymer test
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
