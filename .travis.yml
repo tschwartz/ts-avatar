@@ -1,5 +1,5 @@
 language: node_js
-dist: stable
+dist: trusty
 sudo: required
 addons:
   apt:
