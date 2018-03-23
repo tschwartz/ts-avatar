@@ -4,13 +4,16 @@
     <template>
         <style>
             :host {
+                --ts-avatar-border-radius: 50%;
+                --ts-avatar-height: 150px;
+                --ts-avatar-width: 150px;
+
                 display: block;
-                background-color: #eaeaea;
-                border-radius: 50%;
-                height: 150px;
+                border-radius: var(--ts-avatar-border-radius);
+                height: var(--ts-avatar-height);
                 overflow: hidden;
                 position: relative;
-                width: 150px;
+                width: var(--ts-avatar-width);
             }
 
             :host ::slotted(img) {
