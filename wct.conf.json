@@ -1,8 +1,15 @@
 {
     "verbose": true,
+    "browserOptions": {
+        "chrome": [
+            "headless",
+            "disable-gpu",
+            "no-sandbox"
+        ]
+    },
     "plugins": {
-      "local": {
-        "browsers": ["chrome"]
-      }
+        "local": {
+            "browsers": ["chrome"]
+        }
     }
-  }
+}
