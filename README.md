@@ -1,6 +1,7 @@
 # \<ts-avatar\>
 
 [![Build Status](https://travis-ci.org/tschwartz/ts-avatar.svg?branch=master)](https://travis-ci.org/tschwartz/ts-avatar)
+[![Dependency Status](https://david-dm.org/tschwartz/ts-avatar.svg)](https://david-dm.org/tschwartz/ts-avatar)
 
 The avatar
 
